@@ -16,7 +16,7 @@ public class HorairesService {
     @Autowired
     private HorairesRepository horairesRepository;
 
-    //Lista todos os beneficiarios
+    //Lista todos os horaires
     public List<Horaires> getAllHoraires(){
         return horairesRepository.findAll();
     }
@@ -25,6 +25,14 @@ public class HorairesService {
     public Horaires getHorairesById(Long id){
         return horairesRepository.findById(id).get();
     }
+    // pelos voluntarios
+   /* public Horaires getHorairesByVolontaires(LocalDate date){
+        LocalDate startOfMonth = horaires.getDate().withDayOfMonth(1);
+        LocalDate endOfMonth = horaires.getDate().withDayOfMonth(
+            horaires.getDate().lengthOfMonth());
+
+        return horairesRepository.findByVolontaireandDateBetween(horaires.getVolontaire() , startdate, endDate);
+    }*/
 
     //Salva novo beneficiario
     public Horaires saveHoraires(Horaires horaires){

@@ -38,9 +38,9 @@ public class HorairesController {
     }
 
     //Obter pela data especifica
-    /*@GetMapping("/horaires")
-    public ResponseEntity<List<Beneficiaires>> getHoraires(@RequestParam LocalDate date){
-        List<Beneficiaires> horaires = beneficiairesService (date);
+   /* @GetMapping("/horaires")
+    public ResponseEntity<List<Horaires>> getHoraires(@RequestParam LocalDate date){
+        List<Horaires> horaires = horairesService.getHorairesByVolontaires(date) ;
         return ResponseEntity.ok ();
     }*/
 
