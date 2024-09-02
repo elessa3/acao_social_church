@@ -1,6 +1,6 @@
 # acao_social_church
 
-This project is developing for an ONG that helps immigrants in Europe. 
+This project is developing for an ONG that helps immigrants in Europe. !
 
 The intention is to organize the current and new beneficiaries’ registrations, the days of food donation, and provide good service according to demand. 
 
