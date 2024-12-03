@@ -12,19 +12,19 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "adresse")
-public class Adresse {
+@Table(name = "address")
+public class Address {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "adresse")
-    private Long id_adresse;
+    @Column(name = "address")
+    private Long id_address;
 
-    @Column(name = "rue_avenue")
-    private String rue_avenue;
+    @Column(name = "street")
+    private String street;
 
-    @Column(name = "nombre")
-    private Long nombre;
+    @Column(name = "name")
+    private Long name;
 
     @Column(name = "complement")
     private String complement;
@@ -42,37 +42,37 @@ public class Adresse {
 
     //start constructors
 
-    public Adresse(){
+    public Address(){
 
     }
     
-    public Adresse(Long id_adresse, String rue_avenue, Long nombre, String complement, String commune, Long code_postal) {
-        this.id_adresse = id_adresse;
-        this.rue_avenue = rue_avenue;
-        this.nombre = nombre;
+    public Address(Long id_address, String street, Long name, String complement, String commune, Long code_postal) {
+        this.id_address = id_address;
+        this.street = street;
+        this.name = name;
         this.complement = complement;
         this.commune = commune;
         this.code_postal = code_postal;
     }
 
     //start getters and setters
-    public Long getId_adresse() {
-        return id_adresse;
+    public Long getId_address() {
+        return id_address;
     }
-    public void setId_adresse(Long id_adresse) {
-        this.id_adresse = id_adresse;
+    public void setId_address(Long id_address) {
+        this.id_address = id_address;
     }
-    public String getRue_avenue() {
-        return rue_avenue;
+    public String getstreet() {
+        return street;
     }
-    public void setRue_avenue(String rue_avenue) {
-        this.rue_avenue = rue_avenue;
+    public void setstreet(String street) {
+        this.street = street;
     }
-    public Long getNombre() {
-        return nombre;
+    public Long getname() {
+        return name;
     }
-    public void setNombre(Long nombre) {
-        this.nombre = nombre;
+    public void setname(Long name) {
+        this.name = name;
     }
     public String getComplement() {
         return complement;
@@ -96,7 +96,7 @@ public class Adresse {
     //start Tostring
     @Override
     public String toString() {
-        return "Adresse [id_adresse=" + id_adresse + ", rue_avenue=" + rue_avenue + ", nombre=" + nombre
+        return "address [id_address=" + id_address + ", street=" + street + ", name=" + name
                 + ", complement=" + complement + ", commune=" + commune + ", code_postal=" + code_postal
                 + ", beneficiaires=" + beneficiaires + "]";
     }

@@ -13,9 +13,9 @@ public class BeneficiairesDTO {
     private LocalDate date_de_naissance;
     private Long telephone;
     private String mail;
-    private String code_famille;
-    private List<FamilleDTO> familleDTO;
-    private Set<AdresseDTO> adressseDTO;
+    private String code_family;
+    private List<familyDTO> familyDTO;
+    private Set<addressDTO> adressseDTO;
 
     
     public Long getId_beneficiaires() {
@@ -54,22 +54,22 @@ public class BeneficiairesDTO {
     public void setMail(String mail) {
         this.mail = mail;
     }
-    public String getCode_famille() {
-        return code_famille;
+    public String getCode_family() {
+        return code_family;
     }
-    public void setCode_famille(String code_famille) {
-        this.code_famille = code_famille;
+    public void setCode_family(String code_family) {
+        this.code_family = code_family;
     }
-    public List<FamilleDTO> getFamilleDTO() {
-        return familleDTO;
+    public List<familyDTO> getfamilyDTO() {
+        return familyDTO;
     }
-    public void setFamilleDTO(List<FamilleDTO> familleDTO) {
-        this.familleDTO = familleDTO;
+    public void setfamilyDTO(List<familyDTO> familyDTO) {
+        this.familyDTO = familyDTO;
     }
-    public Set<AdresseDTO> getAdressseDTO() {
+    public Set<addressDTO> getAdressseDTO() {
         return adressseDTO;
     }
-    public void setAdressseDTO(Set<AdresseDTO> adressseDTO) {
+    public void setAdressseDTO(Set<addressDTO> adressseDTO) {
         this.adressseDTO = adressseDTO;
     }
 

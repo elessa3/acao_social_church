@@ -3,9 +3,9 @@ package com.ibnj.acaosocial.dto;
 import java.util.List;
 
 
-public class AdresseDTO {    
+public class addressDTO {    
     
-    private Long id_adresse;
+    private Long id_address;
     private String rue_avenue;
     private Long nombre;
     private String complement;
@@ -14,11 +14,11 @@ public class AdresseDTO {
     private List<BeneficiairesDTO> beneficiairesDTO;
 
 
-    public Long getId_adresse() {
-        return id_adresse;
+    public Long getId_address() {
+        return id_address;
     }
-    public void setId_adresse(Long id_adresse) {
-        this.id_adresse = id_adresse;
+    public void setId_address(Long id_address) {
+        this.id_address = id_address;
     }
     public String getRue_avenue() {
         return rue_avenue;

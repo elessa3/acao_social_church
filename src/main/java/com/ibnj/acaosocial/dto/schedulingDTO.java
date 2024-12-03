@@ -3,19 +3,19 @@ package com.ibnj.acaosocial.dto;
 import java.time.LocalDate;
 
 
-public class HorairesDTO {
+public class schedulingDTO {
 
-    private Long id_horaires;
+    private Long id_scheduling;
     private LocalDate date;
-    private FamilleDTO familleDTO;
+    private familyDTO familyDTO;
     private BeneficiairesDTO beneficiairesDTO;
 
 
-    public Long getId_horaires() {
-        return id_horaires;
+    public Long getId_scheduling() {
+        return id_scheduling;
     }
-    public void setId_horaires(Long id_horaires) {
-        this.id_horaires = id_horaires;
+    public void setId_scheduling(Long id_scheduling) {
+        this.id_scheduling = id_scheduling;
     }
     public LocalDate getDate() {
         return date;
@@ -23,11 +23,11 @@ public class HorairesDTO {
     public void setDate(LocalDate date) {
         this.date = date;
     }
-    public FamilleDTO getFamilleDTO() {
-        return familleDTO;
+    public familyDTO getfamilyDTO() {
+        return familyDTO;
     }
-    public void setFamilleDTO(FamilleDTO familleDTO) {
-        this.familleDTO = familleDTO;
+    public void setfamilyDTO(familyDTO familyDTO) {
+        this.familyDTO = familyDTO;
     }
     public BeneficiairesDTO getBeneficiairesDTO() {
         return beneficiairesDTO;

@@ -2,20 +2,20 @@ package com.ibnj.acaosocial.dto;
 
 import java.util.Set;
 
-public class VolontaireDTO {
+public class voluntaryeDTO {
 
-    private Long id_volontaire;
+    private Long id_voluntarye;
     private String nom;
     private String prenom;
     private Long telephone;
-    private Set<HorairesDTO> horairesDTO;
+    private Set<schedulingDTO> schedulingDTO;
 
 
-    public Long getId_volontaire() {
-        return id_volontaire;
+    public Long getId_voluntarye() {
+        return id_voluntarye;
     }
-    public void setId_volontaire(Long id_volontaire) {
-        this.id_volontaire = id_volontaire;
+    public void setId_voluntarye(Long id_voluntarye) {
+        this.id_voluntarye = id_voluntarye;
     }
     public String getNom() {
         return nom;
@@ -35,11 +35,11 @@ public class VolontaireDTO {
     public void setTelephone(Long telephone) {
         this.telephone = telephone;
     }
-    public Set<HorairesDTO> getHorairesDTO() {
-        return horairesDTO;
+    public Set<schedulingDTO> getschedulingDTO() {
+        return schedulingDTO;
     }
-    public void setHorairesDTO(Set<HorairesDTO> horairesDTO) {
-        this.horairesDTO = horairesDTO;
+    public void setschedulingDTO(Set<schedulingDTO> schedulingDTO) {
+        this.schedulingDTO = schedulingDTO;
     }
 
 

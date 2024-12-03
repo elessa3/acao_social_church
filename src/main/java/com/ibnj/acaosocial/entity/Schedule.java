@@ -12,46 +12,46 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "horaires")
-public class Horaires {
+@Table(name = "schedule")
+public class Schedule {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_horaires")
-    private Long id_horaires;
+    @Column(name = "id_schedule")
+    private Long id_schedule;
     
     @Column(name = "date")
     private LocalDate date;
 
     @ManyToMany
-    @Column(name = "famille")
-    private Famille famille;
+    @Column(name = "family")
+    private Family family;
 
     @ManyToMany
     private Beneficiaires beneficiaires;
 
     @ManyToOne
-    @JoinColumn(name = "id_volontaire", referencedColumnName = "id_volontaire")
-    private Volontaire volontaire;
+    @JoinColumn(name = "id_voluntary", referencedColumnName = "id_voluntary")
+    private Voluntary voluntary;
     
     //inicio construtores
-    public Horaires(){
+    public Schedule(){
         
     }
     
-    public Horaires(Long id_horaires, LocalDate date, Famille famille) {
-        this.id_horaires = id_horaires;
+    public Schedule(Long id_scheduling, LocalDate date, Family family) {
+        this.id_schedule = id_schedule;
         this.date = date;
-        this.famille = famille;
+        this.family = family;
     }
 
     //start getters and setters
-    public Long getId_horaires() {
-        return id_horaires;
+    public Long getId_schedule() {
+        return id_schedule;
     }
 
-    public void setId_horaires(Long id_horaires) {
-        this.id_horaires = id_horaires;
+    public void setId_schedule(Long id_schedule) {
+        this.id_schedule = id_schedule;
     }
 
     public LocalDate getDate() {
@@ -62,12 +62,12 @@ public class Horaires {
         this.date = date;
     }
 
-    public Famille getFamille() {
-        return famille;
+    public Family getFamily() {
+        return family;
     }
 
-    public void setFamille(Famille famille) {
-        this.famille = famille;
+    public void setFamily(Family family) {
+        this.family = family;
     }
 
     public Beneficiaires getBeneficiaires() {
@@ -78,20 +78,20 @@ public class Horaires {
         this.beneficiaires = beneficiaires;
     }
 
-    public Volontaire getVolontaire() {
-        return volontaire;
+    public Voluntary getVoluntary() {
+        return voluntary;
     }
 
-    public void setVolontaire(Volontaire volontaire) {
-        this.volontaire = volontaire;
+    public void setVoluntary(Voluntary voluntary) {
+        this.voluntary = voluntary;
     }
 
 
     //start Tostring
     @Override
     public String toString() {
-        return "Horaires [id_horaires=" + id_horaires + ", date=" + date + ", famille=" + famille + ", beneficiaires="
-                + beneficiaires + ", volontaire=" + volontaire + "]";
+        return "schedule [id_schedule=" + id_schedule + ", date=" + date + ", family=" + family + ", beneficiaires="
+                + beneficiaires + ", voluntary=" + voluntary + "]";
     }
 
     

@@ -15,15 +15,15 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "famille")
-public class Famille {
+@Table(name = "family")
+public class Family {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_famille")
-    private Long id_famille;
+    @Column(name = "id_family")
+    private Long id_family;
 
-    @Column(name = "nom_famille")
-    private String nom_famille;
+    @Column(name = "nom_family")
+    private String nom_family;
 
     @Column(name = "degre_parente")
     private String degre_parente;
@@ -32,35 +32,35 @@ public class Famille {
     @JoinColumn(name = "id_beneficiaires", referencedColumnName = "id_beneficiaires")
     private Beneficiaires beneficiaires;
 
-    @OneToMany(mappedBy = "id_famille", cascade = CascadeType.MERGE)
-    private List<Horaires> horaires = new ArrayList<>();
+    @OneToMany(mappedBy = "id_family", cascade = CascadeType.MERGE)
+    private List<Schedule> scheduling = new ArrayList<>();
 
     
     //start constructors
 
-    public Famille(){
+    public Family(){
         
     }
 
-    public Famille(Long id_famille, String nom_famille, String degre_parente) {
-        this.id_famille = id_famille;
-        this.nom_famille = nom_famille;
+    public Family(Long id_family, String nom_family, String degre_parente) {
+        this.id_family = id_family;
+        this.nom_family = nom_family;
         this.degre_parente = degre_parente;
     }
     
     //start getters and setters
-    public Long getId_famille() {
-        return id_famille;
+    public Long getId_family() {
+        return id_family;
     }
-    public void setId_famille(Long id_famille) {
-        this.id_famille = id_famille;
+    public void setId_family(Long id_family) {
+        this.id_family = id_family;
     }
 
-    public String getNom_famille() {
-        return nom_famille;
+    public String getNom_family() {
+        return nom_family;
     }
-    public void setNom_famille(String nom_famille) {
-        this.nom_famille = nom_famille;
+    public void setNom_family(String nom_family) {
+        this.nom_family = nom_family;
     }
     
     public String getDegre_parente() {
@@ -77,19 +77,19 @@ public class Famille {
         this.beneficiaires = beneficiaires;
     }    
   
-    public List<Horaires> getHoraires() {
-        return horaires;
+    public List<Schedule> getscheduling() {
+        return scheduling;
     }
 
-    public void setHoraires(List<Horaires> horaires) {
-        this.horaires = horaires;
+    public void setscheduling(List<Schedule> scheduling) {
+        this.scheduling = scheduling;
     }
 
     //start to string
     @Override
     public String toString() {
-        return "Famille [id_famille=" + id_famille + ", nom_famille=" + nom_famille + ", degre_parente=" + degre_parente
-                + ", beneficiaires=" + beneficiaires + ", horaires=" + horaires
+        return "family [id_family=" + id_family + ", nom_family=" + nom_family + ", degre_parente=" + degre_parente
+                + ", beneficiaires=" + beneficiaires + ", scheduling=" + scheduling
                 + "]";
     }
 

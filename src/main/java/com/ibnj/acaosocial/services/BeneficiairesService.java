@@ -30,7 +30,7 @@ public class BeneficiairesService {
     }
 
     //Metodo que busca o beneficiario por familia usando DTO
-   /* public List<BeneficiairesDTO> getBeneficiaires_Famille(Long id) {
+   /* public List<BeneficiairesDTO> getBeneficiaires_family(Long id) {
         List<Beneficiaires> listeBeneficiaires = beneficiairesRepository.findAll();
         List<BeneficiairesDTO> listeBeneficiairesDTO = new ArrayList<>();
 
@@ -39,13 +39,13 @@ public class BeneficiairesService {
             listeBeneficiairesDTO.add(beneficiairesDTO);
         }
         //UTILIZAR DTO PARA VALIDAR O METODO
-               return beneficiairesRepository.findByCodeFamille(null, null);
+               return beneficiairesRepository.findByCodefamily(null, null);
     }*/
 
     //Metodo facilitado para listar beneficiarios pelo codigo da familia
-    public List<Beneficiaires> getBeneficiaires_Famille(String code_famille, String nom_famille){
+    public List<Beneficiaires> getBeneficiaires_family(String code_family, String nom_family){
               
-        return beneficiairesRepository.findByCodeFamille(code_famille, nom_famille);
+        return beneficiairesRepository.findByCodefamily(code_family, nom_family);
     }
 
     //Salva novo beneficiario 
@@ -72,8 +72,8 @@ public class BeneficiairesService {
         beneficiairesEnregistre.setMail(beneficiaires.getMail());
         beneficiairesEnregistre.setDate_de_naissance(beneficiaires.getDate_de_naissance());
         beneficiairesEnregistre.setFamilier(beneficiaires.getFamilier());
-        beneficiairesEnregistre.setAdresse(beneficiaires.getAdresse());
-        beneficiairesEnregistre.setCode_famille(beneficiaires.getCode_famille());
+        beneficiairesEnregistre.setaddress(beneficiaires.getaddress());
+        beneficiairesEnregistre.setCode_family(beneficiaires.getCode_family());
 
         return beneficiairesRepository.save(beneficiairesEnregistre);
 
@@ -97,7 +97,7 @@ public class BeneficiairesService {
         beneficiaires.setDate_de_naissance(beneficiairesDTO.getDate_de_naissance());
         beneficiaires.setTelephone(beneficiairesDTO.getTelephone());
         beneficiaires.setMail(beneficiairesDTO.getMail());
-        beneficiaires.setCode_famille(beneficiairesDTO.getCode_famille());
+        beneficiaires.setCode_family(beneficiairesDTO.getCode_family());
     
         return beneficiaires;    
     }
@@ -109,7 +109,7 @@ public class BeneficiairesService {
         beneficiairesDTO.setDate_de_naissance(beneficiaires.getDate_de_naissance());
         beneficiairesDTO.setTelephone(beneficiaires.getTelephone());
         beneficiairesDTO.setMail(beneficiaires.getMail());
-        beneficiairesDTO.setCode_famille(beneficiaires.getCode_famille());
+        beneficiairesDTO.setCode_family(beneficiaires.getCode_family());
 
         return beneficiairesDTO;
     }

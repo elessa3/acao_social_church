@@ -45,10 +45,10 @@ public class BeneficiairesController {
             return new ResponseEntity<>(beneficiaires, HttpStatus.NOT_FOUND);
         }
     }
-    //Obter pelo code de famille
-    @GetMapping("/code_famille")
-    public ResponseEntity<List<Beneficiaires>> getBeneficiairesByCodeFamille(@PathVariable String code_famille, String nom_famille){
-        List<Beneficiaires> beneficiaires = beneficiairesService.getBeneficiaires_Famille(code_famille, nom_famille);
+    //Obter pelo code de family
+    @GetMapping("/code_family")
+    public ResponseEntity<List<Beneficiaires>> getBeneficiairesByCodefamily(@PathVariable String code_family, String nom_family){
+        List<Beneficiaires> beneficiaires = beneficiairesService.getBeneficiaires_family(code_family, nom_family);
         
             return new ResponseEntity<>(beneficiaires, HttpStatus.OK);        
         
@@ -56,9 +56,9 @@ public class BeneficiairesController {
 
 
     //Obter pela data especifica
-  // @GetMapping("/horaires")
-  /*  public ResponseEntity<List<Beneficiaires>> getHoraires(@RequestParam LocalDate date){
-        List<Beneficiaires> horaires = beneficiairesService.getAllBeneficiaires().contains(date) ;
+  // @GetMapping("/scheduling")
+  /*  public ResponseEntity<List<Beneficiaires>> getscheduling(@RequestParam LocalDate date){
+        List<Beneficiaires> scheduling = beneficiairesService.getAllBeneficiaires().contains(date) ;
         return ResponseEntity.ok ();
     }*/
 

@@ -10,13 +10,13 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "volontaire")
-public class Volontaire {
+@Table(name = "voluntary")
+public class Voluntary {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_volontaire")
-    private Long id_volontaire;
+    @Column(name = "id_voluntary")
+    private Long id_voluntary;
 
     @Column(name = "nom")
     private String nom;
@@ -27,30 +27,30 @@ public class Volontaire {
     @Column(name = "telephone")
     private Long telephone;
 
-    @OneToMany(mappedBy = "horaires")
-    private Set<Horaires> horaires;
+    @OneToMany(mappedBy = "scheduling")
+    private Set<Schedule> scheduling;
 
     
     //start constructor
 
-    public Volontaire(){
+    public Voluntary(){
 
     }
     
 
-    public Volontaire(Long id_volontaire, String nom, String prenom, Long telephone) {
-        this.id_volontaire = id_volontaire;
+    public Voluntary(Long id_voluntary, String nom, String prenom, Long telephone) {
+        this.id_voluntary = id_voluntary;
         this.nom = nom;
         this.prenom = prenom;
         this.telephone = telephone;
     }
 
     //start getters and setters
-    public Long getId_volontaire() {
-        return id_volontaire;
+    public Long getId_voluntary() {
+        return id_voluntary;
     }
-    public void setId_volontaire(Long id_volontaire) {
-        this.id_volontaire = id_volontaire;
+    public void setId_voluntary(Long id_voluntary) {
+        this.id_voluntary = id_voluntary;
     }
 
     
@@ -77,17 +77,17 @@ public class Volontaire {
         this.telephone = telephone;
     }
     
-    public Set<Horaires> getHoraires() {
-        return horaires;
+    public Set<Schedule> getscheduling() {
+        return scheduling;
     }
 
-    public void setHoraires(Set<Horaires> horaires) {
-        this.horaires = horaires;
+    public void setscheduling(Set<Schedule> scheduling) {
+        this.scheduling = scheduling;
     }
 
     @Override
     public String toString() {
-        return "Volontaire [id_volontaire=" + id_volontaire + ", nom=" + nom + ", prenom=" + prenom + ", telephone="
+        return "voluntary [id_voluntary=" + id_voluntary + ", nom=" + nom + ", prenom=" + prenom + ", telephone="
                 + telephone + "]";
     }
 

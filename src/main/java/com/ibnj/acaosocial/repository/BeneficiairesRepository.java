@@ -17,10 +17,10 @@ public interface BeneficiairesRepository extends JpaRepository<Beneficiaires, Lo
     Optional<Beneficiaires> findByNameandDN(String  nom, String prenom ,LocalDate date_de_naissance);
 
     //Para listar os agendados por data
-    //List<Beneficiaires> findByHoraires_Date(LocalDate  date); 
+    //List<Beneficiaires> findByscheduling_Date(LocalDate  date); 
 
     //Para listar beneficiario por familia
-    List<Beneficiaires> findByCodeFamille(String  code_famille, String nom_famille);
+    List<Beneficiaires> findByCodefamily(String  code_family, String nom_family);
 
     
     

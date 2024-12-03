@@ -22,6 +22,7 @@ public class Beneficiaires {
     @Column(name = "id_beneficiaires")
     private Long id_beneficiaires;
 
+    //@NotBlanc("campo obrigatorio")
     @Column(name = "nom")
     private String nom;
 
@@ -37,14 +38,14 @@ public class Beneficiaires {
     @Column(name = "mail")
     private String mail;
     
-    @Column(name = "code_famille")
-    private String code_famille;
+    @Column(name = "code_family")
+    private String code_family;
   
     @OneToMany(mappedBy = "beneficiaires")
-    private List<Famille> familier = new ArrayList<>();
+    private List<Family> familier = new ArrayList<>();
 
-    @OneToMany(mappedBy = "adresse")
-    private Set<Adresse> adresse;
+    @OneToMany(mappedBy = "address")
+    private Set<Address> address;
 
      
 
@@ -55,14 +56,14 @@ public class Beneficiaires {
 
 
     public Beneficiaires(Long id_beneficiaires, String nom, String prenom, LocalDate date_de_naissance, Long telephone,
-            String mail, String code_famille) {
+            String mail, String code_family) {
         this.id_beneficiaires = id_beneficiaires;
         this.nom = nom;
         this.prenom = prenom;
         this.date_de_naissance = date_de_naissance;
         this.telephone = telephone;
         this.mail = mail;        
-        this.code_famille = code_famille;
+        this.code_family = code_family;
     }   
 
 
@@ -116,26 +117,26 @@ public class Beneficiaires {
         this.mail = mail;
     }
 
-    public String getCode_famille() {
-        return code_famille;
+    public String getCode_family() {
+        return code_family;
     }
-    public void setCode_famille(String code_famille) {
-        this.code_famille = code_famille;
-    }
-
-    public Set<Adresse> getAdresse() {
-        return adresse;
+    public void setCode_family(String code_family) {
+        this.code_family = code_family;
     }
 
-    public void setAdresse(Set<Adresse> adresse) {
-        this.adresse = adresse;
+    public Set<Address> getAddress() {
+        return address;
     }
 
-    public List<Famille> getFamilier() {
+    public void setaddress(Set<Address> address) {
+        this.address = address;
+    }
+
+    public List<Family> getFamilier() {
         return familier;
     }
 
-    public void setFamilier(List<Famille> familier) {
+    public void setFamilier(List<Family> familier) {
         this.familier = familier;
     }
 
@@ -145,7 +146,7 @@ public class Beneficiaires {
     public String toString() {
         return "Beneficiaires [id_beneficiaires=" + id_beneficiaires + ", nom=" + nom + ", prenom=" + prenom
                 + ", date_de_naissance=" + date_de_naissance + ", telephone=" + telephone + ", mail=" + mail
-                + ", code_famille=" + code_famille + ", familier=" + familier + ", adresse=" + adresse + "]";
+                + ", code_family=" + code_family + ", familier=" + familier + ", address=" + address + "]";
     }
 
 
