@@ -6,23 +6,23 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.ibnj.acaosocial.entity.family;
+import com.ibnj.acaosocial.entity.Family;
 import com.ibnj.acaosocial.exception.DuplicateException;
-import com.ibnj.acaosocial.repository.familyRepository;
+import com.ibnj.acaosocial.repository.FamilyRepository;
 
 @Service
-public class familyService {
+public class FamilyService {
     
     @Autowired
-    private familyRepository familyRepository;
+    private FamilyRepository familyRepository;
 
     //Lista todos os beneficiarios
-    public List<family> getAllfamily(){
+    public List<Family> getAllFamily(){
         return familyRepository.findAll();
     }
 
     //Lista pelo id
-    public family getfamilyById(Long id){
+    public Family getFamilyById(Long id){
         return familyRepository.findById(id).get();
     }
 
@@ -32,32 +32,32 @@ public class familyService {
 */
 
     //Salva novo beneficiario
-    public family savefamily(family family){
-        Optional<family> existing = familyRepository.findByNameandCode(family.getNom_family(), family.getBeneficiaires().getCode_family());
+    public Family saveFamily(Family family){
+        Optional<Family> existing = familyRepository.findByNameandCode(family.getNom_family(), family.getBeneficiaires().getCode_family());
         if (existing.isPresent()) {
-            throw new DuplicateException ("Familia ja cadastrada");
+            throw new DuplicateException ("Family already registered");
         } else {
             return familyRepository.save(family);
         }
     }
 
     //Atualiza os dados do beneficiario
-    public family updatefamily(family family,  Long id){
-        family familyEnregistre = getfamilyById(id);
+    public Family updateFamily(Family family,  Long id){
+        Family familyEnregistry = getFamilyById(id);
 
-        familyEnregistre.setNom_family(family.getNom_family());
-        familyEnregistre.setDegre_parente(family.getDegre_parente());
-        familyEnregistre.setBeneficiaires(family.getBeneficiaires());
-        familyEnregistre.setscheduling(family.getscheduling());
+        familyEnregistry.setNom_family(family.getNom_family());
+        familyEnregistry.setDegre_parente(family.getDegre_parente());
+        familyEnregistry.setBeneficiaires(family.getBeneficiaires());
+        familyEnregistry.setscheduling(family.getscheduling());
 
-        return familyRepository.save(familyEnregistre);
+        return familyRepository.save(familyEnregistry);
 
     }
 
     //Deleta os dados
-    public family deletefamily(Long id){
+    public Family deleteFamily(Long id){
         familyRepository.deleteById(id);
-        return getfamilyById(id);
+        return getFamilyById(id);
     }
     
 }

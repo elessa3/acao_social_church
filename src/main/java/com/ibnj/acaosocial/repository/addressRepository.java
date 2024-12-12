@@ -9,6 +9,6 @@ import com.ibnj.acaosocial.entity.Address;
 
 @Repository
 public interface AddressRepository extends JpaRepository<Address, Long> {
-    Optional<Address> findByAddressComplete(Long nombre, String rue_avenue, String complement, String commune, Long code_postal);
+    Optional<Address> findByAddressComplete(Long name, String street, String complement, String commune, Long code_postal);
 
 }

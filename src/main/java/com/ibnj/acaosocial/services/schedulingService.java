@@ -8,21 +8,21 @@ import org.springframework.stereotype.Service;
 
 import com.ibnj.acaosocial.entity.Schedule;
 import com.ibnj.acaosocial.exception.DuplicateException;
-import com.ibnj.acaosocial.repository.schedulingRepository;
+import com.ibnj.acaosocial.repository.SchedulingRepository;
 
 @Service
-public class schedulingService {
+public class SchedulingService {
 
     @Autowired
-    private schedulingRepository schedulingRepository;
+    private SchedulingRepository schedulingRepository;
 
     //Lista todos os scheduling
-    public List<Schedule> getAllscheduling(){
+    public List<Schedule> getAllScheduling(){
         return schedulingRepository.findAll();
     }
 
     //Lista pelo id
-    public Schedule getschedulingById(Long id){
+    public Schedule getSchedulingById(Long id){
         return schedulingRepository.findById(id).get();
     }
     // pelos voluntarios
@@ -35,7 +35,7 @@ public class schedulingService {
     }*/
 
     //Salva novo beneficiario
-    public Schedule savescheduling(Schedule scheduling){
+    public Schedule saveScheduling(Schedule scheduling){
         LocalDate startOfMonth = scheduling.getDate().withDayOfMonth(1);
         LocalDate endOfMonth = scheduling.getDate().withDayOfMonth(
             scheduling.getDate().lengthOfMonth());
@@ -44,15 +44,15 @@ public class schedulingService {
         List<Schedule> scheduling_beneficiaires = schedulingRepository.findByBeneficiairesandDateBetween(
             scheduling.getBeneficiaires(), startOfMonth, endOfMonth);
         if (!scheduling_beneficiaires.isEmpty()) {
-            throw new DuplicateException("Beneficiario ja possui agendamento neste mês");
+            throw new DuplicateException("Beneficiary already registered this month");
         }
 
         //Verifica se a familia ja tem um agendamento no mes
-        List<Schedule> scheduling_family = schedulingRepository.findByfamily_Beneficiaires_IdfamilyandDateBetween(
-            scheduling.getfamily().getBeneficiaires().getCode_family(), startOfMonth, endOfMonth);
+        List<Schedule> scheduling_family = schedulingRepository.findByFamily_Beneficiaires_IdfamilyandDateBetween (
+            scheduling.getFamily().getBeneficiaires().getCode_family(), startOfMonth, endOfMonth);
             
         if (!scheduling_family.isEmpty()) {
-            throw new DuplicateException("Familia ja possui agendamento neste mês");
+            throw new DuplicateException("Family already registered this month");
         }
 
 
@@ -60,22 +60,22 @@ public class schedulingService {
     }
 
     //Atualiza os dados do beneficiario
-    public Schedule updatescheduling(Schedule scheduling,  Long id){
-        Schedule schedulingEnregistre = getschedulingById(id);
+    public Schedule updateScheduling(Schedule scheduling,  Long id){
+        Schedule schedulingEnregistry = getSchedulingById(id);
 
-        schedulingEnregistre.setDate(scheduling.getDate());
-        schedulingEnregistre.setfamily(scheduling.getfamily());
-        schedulingEnregistre.setvoluntarye(scheduling.getvoluntarye());
+        schedulingEnregistry.setDate(scheduling.getDate());
+        schedulingEnregistry.setFamily(scheduling.getFamily());
+        schedulingEnregistry.setVoluntary(scheduling.getVoluntary());
         
 
-        return schedulingRepository.save(schedulingEnregistre);
+        return schedulingRepository.save(schedulingEnregistry);
 
     }
 
     //Deleta os dados
-    public Schedule deletescheduling(Long id){
+    public Schedule deleteScheduling(Long id){
         schedulingRepository.deleteById(id);
-        return getschedulingById(id);
+        return getSchedulingById(id);
     }
     
 }

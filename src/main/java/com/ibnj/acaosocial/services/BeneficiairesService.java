@@ -64,18 +64,18 @@ public class BeneficiairesService {
 
     //Atualiza os dados do beneficiario
     public Beneficiaires updateBeneficiaires(Beneficiaires beneficiaires,  Long id){
-        Beneficiaires beneficiairesEnregistre = getBeneficiairesById(id);
+        Beneficiaires beneficiairesEnregistry = getBeneficiairesById(id);
 
-        beneficiairesEnregistre.setNom(beneficiaires.getNom());
-        beneficiairesEnregistre.setPrenom(beneficiaires.getPrenom());
-        beneficiairesEnregistre.setTelephone(beneficiaires.getTelephone());
-        beneficiairesEnregistre.setMail(beneficiaires.getMail());
-        beneficiairesEnregistre.setDate_de_naissance(beneficiaires.getDate_de_naissance());
-        beneficiairesEnregistre.setFamilier(beneficiaires.getFamilier());
-        beneficiairesEnregistre.setaddress(beneficiaires.getaddress());
-        beneficiairesEnregistre.setCode_family(beneficiaires.getCode_family());
+        beneficiairesEnregistry.setNom(beneficiaires.getNom());
+        beneficiairesEnregistry.setPrenom(beneficiaires.getPrenom());
+        beneficiairesEnregistry.setTelephone(beneficiaires.getTelephone());
+        beneficiairesEnregistry.setMail(beneficiaires.getMail());
+        beneficiairesEnregistry.setDate_de_naissance(beneficiaires.getDate_de_naissance());
+        beneficiairesEnregistry.setFamilier(beneficiaires.getFamilier());
+        beneficiairesEnregistry.setaddress(beneficiaires.getAddress());
+        beneficiairesEnregistry.setCode_family(beneficiaires.getCode_family());
 
-        return beneficiairesRepository.save(beneficiairesEnregistre);
+        return beneficiairesRepository.save(beneficiairesEnregistry);
 
     }
 

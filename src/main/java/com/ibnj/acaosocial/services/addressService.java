@@ -6,23 +6,23 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.ibnj.acaosocial.entity.address;
+import com.ibnj.acaosocial.entity.Address;
 import com.ibnj.acaosocial.exception.DuplicateException;
-import com.ibnj.acaosocial.repository.addressRepository;
+import com.ibnj.acaosocial.repository.AddressRepository;
 
 @Service
-public class addressService {
+public class AddressService {
     
     @Autowired
-    private addressRepository addressRepository;
+    private AddressRepository addressRepository;
 
     //Lista todos os enderecos
-    public List<address> getAlladdress(){
+    public List<Address> getAllAddress(){
         return addressRepository.findAll();
     }
 
     //Lista pelo id
-    public address getaddressById(Long id){
+    public Address getAddressById(Long id){
         return addressRepository.findById(id).get();
     }
 
@@ -38,11 +38,11 @@ public class addressService {
     //fazer uma verificacao se no mesmo endereco tem mais de um codigo de familia
 
     //Salva novo beneficiario
-    public address saveaddress(address address){
-        Optional<address> existing = addressRepository.findByaddressComplete(
-            address.getNombre(), address.getRue_avenue(), address.getComplement() , address.getCommune(), address.getCode_postal());
+    public Address saveAddress(Address address){
+        Optional<Address> existing = addressRepository.findByAddressComplete(
+            address.getname(), address.getstreet(), address.getComplement() , address.getCommune(), address.getCode_postal());
             if(existing.isPresent()){
-                throw new DuplicateException("Endereco ja cadastrado");
+                throw new DuplicateException("Address already registered");
             } else {
 
                 return addressRepository.save(address);
@@ -50,23 +50,23 @@ public class addressService {
     }
 
     //Atualiza os dados do beneficiario
-    public address updateaddress(address address,  Long id){
-        address addressEnregistre = getaddressById(id);
+    public Address updateAddress(Address address,  Long id){
+        Address addressEnregistry = getAddressById(id);
 
-        addressEnregistre.setRue_avenue(address.getRue_avenue());
-        addressEnregistre.setNombre(address.getNombre());
-        addressEnregistre.setComplement(address.getComplement());
-        addressEnregistre.setCommune(address.getCommune());
-        addressEnregistre.setCode_postal(address.getCode_postal());
+        addressEnregistry.setstreet(address.getstreet());
+        addressEnregistry.setname(address.getname());
+        addressEnregistry.setComplement(address.getComplement());
+        addressEnregistry.setCommune(address.getCommune());
+        addressEnregistry.setCode_postal(address.getCode_postal());
         
-        return addressRepository.save(addressEnregistre);
+        return addressRepository.save(addressEnregistry);
 
     }
 
     //Deleta os dados
-    public address deleteaddress(Long id){
+    public Address deleteAddress(Long id){
         addressRepository.deleteById(id);
-        return getaddressById(id);
+        return getAddressById(id);
     }
     
 }
