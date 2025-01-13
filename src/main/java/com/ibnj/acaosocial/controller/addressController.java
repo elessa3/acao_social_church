@@ -14,27 +14,27 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ibnj.acaosocial.entity.address;
-import com.ibnj.acaosocial.services.addressService;
+import com.ibnj.acaosocial.entity.Address;
+import com.ibnj.acaosocial.services.AddressService;
 
 @RestController
 @RequestMapping("/{address}")
-public class addressController {
+public class AddressController {
 
 
     @Autowired
-    private addressService addressService;
+    private AddressService addressService;
 
     //Obter
     @GetMapping
-    public ResponseEntity<List<address>> getAlladdress(){
-        return new ResponseEntity<> (addressService.getAlladdress(), HttpStatus.OK);
+    public ResponseEntity<List<Address>> getAllAddress(){
+        return new ResponseEntity<> (addressService.getAllAddress(), HttpStatus.OK);
     }
 
     //Obter pelo id
     @GetMapping("/{id}")
-    public ResponseEntity<address> getaddressById(@PathVariable Long id){
-        address address = addressService.getaddressById(id);
+    public ResponseEntity<Address> getAddressById(@PathVariable Long id){
+        Address address = addressService.getAddressById(id);
         if(null != address){
             return new ResponseEntity<>(address, HttpStatus.OK);
         }
@@ -45,24 +45,24 @@ public class addressController {
 
     //Salvar
     @PostMapping
-    public ResponseEntity<address> saveaddress(@RequestBody address address){
-        return new ResponseEntity<>(addressService.saveaddress(address), HttpStatus.CREATED);
+    public ResponseEntity<Address> saveAddress(@RequestBody Address address){
+        return new ResponseEntity<>(addressService.saveAddress(address), HttpStatus.CREATED);
     }
 
     //Atualizar pelo id
     @PutMapping("/{id}")
-    public ResponseEntity<address> updateaddress(@RequestBody address address, @PathVariable Long id){
-        return new ResponseEntity<>(addressService.updateaddress(address, id), HttpStatus.OK);
+    public ResponseEntity<Address> updateAddress(@RequestBody Address address, @PathVariable Long id){
+        return new ResponseEntity<>(addressService.updateAddress(address, id), HttpStatus.OK);
     }
 
     //Deletarr pelo id
     @DeleteMapping("/{id}")
-    public ResponseEntity<address> deleteaddress(@PathVariable Long id){
-        address address = addressService.getaddressById(id);
+    public ResponseEntity<Address> deleteAddress(@PathVariable Long id){
+        Address address = addressService.getAddressById(id);
         if(null == address){
             return new ResponseEntity<>(address, HttpStatus.NOT_FOUND);
         } else {
-            return new ResponseEntity<>(addressService.deleteaddress(id), HttpStatus.OK);
+            return new ResponseEntity<>(addressService.deleteAddress(id), HttpStatus.OK);
         }
     }
     

@@ -12,24 +12,24 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import com.ibnj.acaosocial.entity.family;
-import com.ibnj.acaosocial.services.familyService;
+import com.ibnj.acaosocial.entity.Family;
+import com.ibnj.acaosocial.services.FamilyService;
 
-public class familyController {
+public class FamilyController {
 
      @Autowired
-    private familyService familyService;
+    private FamilyService familyService;
 
     //Obter
     @GetMapping
-    public ResponseEntity<List<family>> getAllfamily(){
-        return new ResponseEntity<> (familyService.getAllfamily(), HttpStatus.OK);
+    public ResponseEntity<List<Family>> getAllFamily(){
+        return new ResponseEntity<> (familyService.getAllFamily(), HttpStatus.OK);
     }
 
     //Obter pelo id
     @GetMapping("/{id}")
-    public ResponseEntity<family> getfamilyById(@PathVariable Long id){
-        family family = familyService.getfamilyById(id);
+    public ResponseEntity<Family> getFamilyById(@PathVariable Long id){
+        Family family = familyService.getFamilyById(id);
         if(null != family){
             return new ResponseEntity<>(family, HttpStatus.OK);
         }
@@ -40,25 +40,25 @@ public class familyController {
 
     //Salvar
     @PostMapping
-    public ResponseEntity<family> savefamily(@RequestBody family family){
+    public ResponseEntity<Family> saveFamily(@RequestBody Family family){
        // family saved = familyService.savefamily(family);
-        return new ResponseEntity<>(familyService.savefamily(family), HttpStatus.CREATED);
+        return new ResponseEntity<>(familyService.saveFamily(family), HttpStatus.CREATED);
     }
 
     //Atualizar pelo id
     @PutMapping("/{id}")
-    public ResponseEntity<family> updatefamily(@RequestBody family family, @PathVariable Long id){
-        return new ResponseEntity<>(familyService.updatefamily(family, id), HttpStatus.OK);
+    public ResponseEntity<Family> updateFamily(@RequestBody Family family, @PathVariable Long id){
+        return new ResponseEntity<>(familyService.updateFamily(family, id), HttpStatus.OK);
     }
 
     //Deletarr pelo id
     @DeleteMapping("/{id}")
-    public ResponseEntity<family> deletefamily(@PathVariable Long id){
-        family family = familyService.getfamilyById(id);
+    public ResponseEntity<Family> deleteFamily(@PathVariable Long id){
+        Family family = familyService.getFamilyById(id);
         if(null == family){
             return new ResponseEntity<>(family, HttpStatus.NOT_FOUND);
         } else {
-            return new ResponseEntity<>(familyService.deletefamily(id), HttpStatus.OK);
+            return new ResponseEntity<>(familyService.deleteFamily(id), HttpStatus.OK);
         }
     }
     

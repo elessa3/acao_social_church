@@ -19,22 +19,22 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ibnj.acaosocial.entity.Beneficiaires;
 import com.ibnj.acaosocial.entity.Schedule;
 import com.ibnj.acaosocial.exception.DuplicateException;
-import com.ibnj.acaosocial.repository.schedulingRepository;
-import com.ibnj.acaosocial.services.schedulingService;
+import com.ibnj.acaosocial.repository.SchedulingRepository;
+import com.ibnj.acaosocial.services.SchedulingService;
 
 @RestController
 @RequestMapping("/scheduling")
-public class schedulingController {
+public class SchedulingController {
 
 
 
      @Autowired
-    private schedulingService schedulingService;
+    private SchedulingService schedulingService;
 
     //Obter
     @GetMapping
-    public ResponseEntity<List<Schedule>> getAllscheduling(){
-        return new ResponseEntity<> (schedulingService.getAllscheduling(), HttpStatus.OK);
+    public ResponseEntity<List<Schedule>> getAllScheduling(){
+        return new ResponseEntity<> (schedulingService.getAllScheduling(), HttpStatus.OK);
     }
 
     //Obter pela data especifica
@@ -46,8 +46,8 @@ public class schedulingController {
 
     //Obter pelo id
     @GetMapping("/{id}")
-    public ResponseEntity<Schedule> getschedulingById(@PathVariable Long id){
-        Schedule scheduling = schedulingService.getschedulingById(id);
+    public ResponseEntity<Schedule> getSchedulingById(@PathVariable Long id){
+        Schedule scheduling = schedulingService.getSchedulingById(id);
         if(null != scheduling){
             return new ResponseEntity<>(scheduling, HttpStatus.OK);
         }
@@ -58,31 +58,31 @@ public class schedulingController {
 
     //Salvar
     @PostMapping
-    public ResponseEntity<Schedule> savescheduling(@RequestBody Schedule scheduling){
+    public ResponseEntity<Schedule> saveScheduling(@RequestBody Schedule scheduling){
        // scheduling saved = schedulingService.savescheduling(scheduling);
        try {
-           return new ResponseEntity<>(schedulingService.savescheduling(scheduling), HttpStatus.CREATED);
+           return new ResponseEntity<>(schedulingService.saveScheduling(scheduling), HttpStatus.CREATED);
            
         } catch(DuplicateException e) {
-            return new ResponseEntity<>(schedulingService.savescheduling(scheduling), HttpStatus.CONFLICT);
+            return new ResponseEntity<>(schedulingService.saveScheduling(scheduling), HttpStatus.CONFLICT);
             
        }
     }
 
     //Atualizar pelo id
     @PutMapping("/{id}")
-    public ResponseEntity<Schedule> updatescheduling(@RequestBody Schedule scheduling, @PathVariable Long id){
-        return new ResponseEntity<>(schedulingService.updatescheduling(scheduling, id), HttpStatus.OK);
+    public ResponseEntity<Schedule> updateScheduling(@RequestBody Schedule scheduling, @PathVariable Long id){
+        return new ResponseEntity<>(schedulingService.updateScheduling(scheduling, id), HttpStatus.OK);
     }
 
     //Deletarr pelo id
     @DeleteMapping("/{id}")
-    public ResponseEntity<Schedule> deletescheduling(@PathVariable Long id){
-        Schedule scheduling = schedulingService.getschedulingById(id);
+    public ResponseEntity<Schedule> deleteScheduling(@PathVariable Long id){
+        Schedule scheduling = schedulingService.getSchedulingById(id);
         if(null == scheduling){
             return new ResponseEntity<>(scheduling, HttpStatus.NOT_FOUND);
         } else {
-            return new ResponseEntity<>(schedulingService.deletescheduling(id), HttpStatus.OK);
+            return new ResponseEntity<>(schedulingService.deleteScheduling(id), HttpStatus.OK);
         }
     }
     
