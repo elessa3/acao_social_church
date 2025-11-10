@@ -1,7 +1,8 @@
 # acao_social_church
 
-[! [Java](https://img.shields.io/badge/Java-17-blue?logo=openjdk)](https://openjdk.org/)
-[! [Spring Boot](https://img.shields.io/badge/Spring_Boot-3.1-green?logo=springboot)](https://spring.io/projects/spring-boot)
+![Java](https://img.shields.io/badge/Java-17-blue)
+![Spring Boot](https://img.shields.io/badge/Spring_Boot-3.1-green)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-15-blue)
 
 A complete RESTful API for social action, with JWT authentication and cloud deployment.
 
@@ -10,8 +11,7 @@ A complete RESTful API for social action, with JWT authentication and cloud depl
 *   Complete CRUD tasks
 *   Authentication and authorization with JWT
 *   Upload files to AWS 
-*   API documentation with Swagger/OpenAPI
-*   Deploy no Railway/Render
+*   API documentation with Swagger
 
 ## 🛠 Technologies Used
 
